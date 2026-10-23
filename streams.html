@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Cyber-Duck</title>
+<link rel="icon" type="image/x-icon" href="assets/images/icon.png">
+
+<!-- RGB Cursor Arrow - https://www.cursors-4u.com/cursor/rgb-cursor-arrow -->
+<link rel="stylesheet" href="https://cdn.cursors-4u.net/cursors/animated/white-rgb-cursor-normal-705ca6b9-32.css">
+<!-- End www.Cursors-4U.com Code -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 579 Cyborg Gaming
+
+https://templatemo.com/tm-579-cyborg-gaming
+
+-->
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                 ```html
+<!-- ***** Search Start ***** -->
+<div class="search-input" id="searchContainer">
+  <form id="search">
+    <input
+      type="text"
+      placeholder="Type Something"
+      id="searchText"
+      name="searchKeyword"
+      autocomplete="off"
+    />
+    <i class="fa fa-search" id="searchButton"></i>
+  </form>
+
+  <!-- Auto Suggestions -->
+  <div id="searchSuggestions" class="search-suggestions"></div>
+</div>
+<!-- ***** Search End ***** -->
+
+<style>
+.search-input {
+  position: relative;
+}
+
+.search-suggestions {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #353535;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-shadow: 0 5px 20px rgba(184, 184, 184, 0.15);
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+.search-suggestion-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  color: #faf8f8;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.search-suggestion-item:hover {
+  background: #f72978;
+}
+
+.search-suggestion-item i {
+  margin-right: 10px;
+  color: #888888;
+}
+
+.search-no-results {
+  padding: 12px 15px;
+  color: #777777;
+  font-size: 13px;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const searchForm = document.getElementById("search");
+  const searchInput = document.getElementById("searchText");
+  const searchButton = document.getElementById("searchButton");
+  const suggestionsBox = document.getElementById("searchSuggestions");
+
+  const searchLinks = {
+    "bot": "details.html",
+    "hirunaka md": "details.html",
+    "gimaa md": "details.html",
+    "owner": "profile.html",
+    "admin": "streams.html",
+    "how to connect": "browser.html",
+    "matheeshh": "profile.html",
+    "gimaa": "profile.html",
+    "help": "https://wa.me/94751594321",
+    "other site": "https://gimaa-collabs.vercel.app",
+    "malika": "streams.html"
+  };
+
+  const keywords = Object.keys(searchLinks);
+
+  function showSuggestions() {
+    const query = searchInput.value.trim().toLowerCase();
+
+    const matches = keywords.filter(function (keyword) {
+      return keyword.includes(query);
+    });
+
+    suggestionsBox.innerHTML = "";
+    suggestionsBox.style.display = "block";
+
+    if (matches.length === 0) {
+      suggestionsBox.innerHTML =
+        '<div class="search-no-results">No matching keywords found</div>';
+      return;
+    }
+
+    matches.forEach(function (keyword) {
+      const item = document.createElement("div");
+      item.className = "search-suggestion-item";
+
+      const icon = document.createElement("i");
+      icon.className = "fa fa-search";
+
+      item.appendChild(icon);
+      item.appendChild(document.createTextNode(keyword));
+
+      item.addEventListener("click", function () {
+        searchInput.value = keyword;
+        suggestionsBox.style.display = "none";
+        window.location.assign(searchLinks[keyword]);
+      });
+
+      suggestionsBox.appendChild(item);
+    });
+  }
+
+  function performSearch(event) {
+    if (event) event.preventDefault();
+
+    const keyword = searchInput.value.trim().toLowerCase();
+
+    if (searchLinks[keyword]) {
+      suggestionsBox.style.display = "none";
+      window.location.assign(searchLinks[keyword]);
+    } else {
+      showSuggestions();
+    }
+  }
+
+  searchInput.addEventListener("focus", showSuggestions);
+  searchInput.addEventListener("input", showSuggestions);
+
+  searchForm.addEventListener("submit", performSearch);
+  searchButton.addEventListener("click", performSearch);
+
+  document.addEventListener("click", function (event) {
+    if (!document.getElementById("searchContainer").contains(event.target)) {
+      suggestionsBox.style.display = "none";
+    }
+  });
+
+  searchInput.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      suggestionsBox.style.display = "none";
+    }
+  });
+});
+</script>
+
+```
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="details.html">Bots</a></li>
+                        <li><a href="streams.html" class="active">Team</a></li>
+                        <li><a href="profile.html">Owner <img src="assets/images/pp3.png" alt=""></a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Featured Games Start ***** -->
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="featured-games header-text">
+                <div class="heading-section">
+                  <h4><em>Top</em> Users</h4>
+                </div>
+                <div class="owl-features owl-carousel">
+                  <div class="item">
+                    <div class="thumb">
+                      <img src="assets/images/pp1.jpg" alt="">
+                      <div class="hover-effect">
+                        <h6>OWNER</h6>
+                      </div>
+                    </div>
+                    <h4>𝖒𝖆𝖙𝖍𝖊𝖊𝖘𝖍𝖍 👑<br><span>Connected</span></h4>
+                    <ul>
+                      <li><i class="fa fa-star"></i></li>
+                      <li></i></li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <div class="thumb">
+                      <img src="assets/images/pp2.jpg" alt="">
+                      <div class="hover-effect">
+                        <h6>OWNER</h6>
+                      </div>
+                    </div>
+                    <h4>ＧIᗰ𝛥𝛥 <br><span>Connected</span></h4>
+                    <ul>
+                      <li><i class="fa fa-star"></i></li>
+                      <li></i></li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <div class="thumb">
+                      <img src="assets/images/pp4.jpg" alt="">
+                      <div class="hover-effect">
+                        <h6>ADMIN</h6>
+                      </div>
+                    </div>
+                    <h4>Malika<br><span>Connected</span></h4>
+                    <ul>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <div class="thumb">
+                      <img src="assets/images/pp6.jpg" alt="">
+                      <div class="hover-effect">
+                        <h6>USER</h6>
+                      </div>
+                    </div>
+                    <h4>Deegayu<br><span>Active</span></h4>
+                    <ul>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <div class="thumb">
+                      <img src="assets/images/pp8.jpg" alt="">
+                      <div class="hover-effect">
+                        <h6>USER</h6>
+                      </div>
+                    </div>
+                    <h4>Kusal<br><span>Active</span></h4>
+                  </div>
+                  <div class="item">
+                    <div class="thumb">
+                      <img src="assets/images/pp9.jpg" alt="">
+                      <div class="hover-effect">
+                        <h6>USER</h6>
+                      </div>
+                    </div>
+                    <h4>Methuja<br><span>Active</span></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="top-streamers">
+                <div class="heading-section">
+                  <h4><em>Top</em> Admins</h4>
+                </div>
+                <ul>
+                  <li>
+                    <span>01</span>
+                    <img src="assets/images/pp1.jpg" alt="" style="max-width: 46px; border-radius: 50%; margin-right: 15px;">
+                    <h6><i class="fa fa-check"></i> matheeshh 👑</h6>
+                    <div class="main-button">
+                      <a href="https://wa.me/94751594321">Chat</a>
+                    </div>
+                  </li>
+                  <li>
+                    <span>02</span>
+                    <img src="assets/images/pp2.jpg" alt="" style="max-width: 46px; border-radius: 50%; margin-right: 15px;">
+                    <h6><i class="fa fa-check"></i>Gimaa 👑</h6>
+                    <div class="main-button">
+                      <a href="https://wa.me/94702345290">Chat</a>
+                    </div>
+                  </li>
+                  <li>
+                    <span>03</span>
+                    <img src="assets/images/pp4.jpg" alt="" style="max-width: 46px; border-radius: 50%; margin-right: 15px;">
+                    <h6><i class="fa fa-check"></i>Malika</h6>
+                    <div class="main-button">
+                      <a href="https://wa.me/94728516221">Chat</a>
+                    </div>
+                  </li>
+                  <li>
+                    <span>04</span>
+                    <img src="assets/images/pp5.jpg" alt="" style="max-width: 46px; border-radius: 50%; margin-right: 15px;">
+                    <h6><i class="fa fa-check"></i>Hirunaka</h6>
+                    <div class="main-button">
+                      <a href="#">Locked</a>
+                    </div>
+                  </li>
+                  <li>
+                    
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Featured Games End ***** -->
+
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2026 <a href="#">Cyber-Duck</a> Company. All rights reserved. 
+          
+          <br>Design: <a href="https://wa.me/94751594321" target="_blank" title="free CSS templates">not_matheeshh</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/popup.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+
+  </body>
+
+</html>

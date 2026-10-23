@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Cyber-Duck</title>
+<link rel="icon" type="image/x-icon" href="assets/images/icon.png">
+
+<!-- Azure Aura Busy - https://www.cursors-4u.com/cursor/azure-aura-busy -->
+<link rel="stylesheet" href="https://cdn.cursors-4u.net/cursors/animated/wait-b622c391-32.css">
+<!-- End www.Cursors-4U.com Code -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 579 Cyborg Gaming
+
+https://templatemo.com/tm-579-cyborg-gaming
+
+-->
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+           ```html
+<!-- ***** Search Start ***** -->
+<div class="search-input" id="searchContainer">
+  <form id="search">
+    <input
+      type="text"
+      placeholder="Type Something"
+      id="searchText"
+      name="searchKeyword"
+      autocomplete="off"
+    />
+    <i class="fa fa-search" id="searchButton"></i>
+  </form>
+
+  <!-- Auto Suggestions -->
+  <div id="searchSuggestions" class="search-suggestions"></div>
+</div>
+<!-- ***** Search End ***** -->
+
+<style>
+.search-input {
+  position: relative;
+}
+
+.search-suggestions {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #353535;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-shadow: 0 5px 20px rgba(184, 184, 184, 0.15);
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+.search-suggestion-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  color: #faf8f8;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.search-suggestion-item:hover {
+  background: #f72978;
+}
+
+.search-suggestion-item i {
+  margin-right: 10px;
+  color: #888888;
+}
+
+.search-no-results {
+  padding: 12px 15px;
+  color: #777777;
+  font-size: 13px;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const searchForm = document.getElementById("search");
+  const searchInput = document.getElementById("searchText");
+  const searchButton = document.getElementById("searchButton");
+  const suggestionsBox = document.getElementById("searchSuggestions");
+
+  const searchLinks = {
+    "bot": "details.html",
+    "hirunaka md": "details.html",
+    "gimaa md": "details.html",
+    "owner": "profile.html",
+    "admin": "streams.html",
+    "how to connect": "browser.html",
+    "matheeshh": "profile.html",
+    "gimaa": "profile.html",
+    "help": "https://wa.me/94751594321",
+    "other site": "https://gimaa-collabs.vercel.app",
+    "malika": "streams.html"
+  };
+
+  const keywords = Object.keys(searchLinks);
+
+  function showSuggestions() {
+    const query = searchInput.value.trim().toLowerCase();
+
+    const matches = keywords.filter(function (keyword) {
+      return keyword.includes(query);
+    });
+
+    suggestionsBox.innerHTML = "";
+    suggestionsBox.style.display = "block";
+
+    if (matches.length === 0) {
+      suggestionsBox.innerHTML =
+        '<div class="search-no-results">No matching keywords found</div>';
+      return;
+    }
+
+    matches.forEach(function (keyword) {
+      const item = document.createElement("div");
+      item.className = "search-suggestion-item";
+
+      const icon = document.createElement("i");
+      icon.className = "fa fa-search";
+
+      item.appendChild(icon);
+      item.appendChild(document.createTextNode(keyword));
+
+      item.addEventListener("click", function () {
+        searchInput.value = keyword;
+        suggestionsBox.style.display = "none";
+        window.location.assign(searchLinks[keyword]);
+      });
+
+      suggestionsBox.appendChild(item);
+    });
+  }
+
+  function performSearch(event) {
+    if (event) event.preventDefault();
+
+    const keyword = searchInput.value.trim().toLowerCase();
+
+    if (searchLinks[keyword]) {
+      suggestionsBox.style.display = "none";
+      window.location.assign(searchLinks[keyword]);
+    } else {
+      showSuggestions();
+    }
+  }
+
+  searchInput.addEventListener("focus", showSuggestions);
+  searchInput.addEventListener("input", showSuggestions);
+
+  searchForm.addEventListener("submit", performSearch);
+  searchButton.addEventListener("click", performSearch);
+
+  document.addEventListener("click", function (event) {
+    if (!document.getElementById("searchContainer").contains(event.target)) {
+      suggestionsBox.style.display = "none";
+    }
+  });
+
+  searchInput.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      suggestionsBox.style.display = "none";
+    }
+  });
+});
+</script>
+
+```
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="details.html" class="active">Bots</a></li>
+                        <li><a href="streams.html">Team</a></li>
+                        <li><a href="profile.html">Owner <img src="assets/images/pp3.png" alt=""></a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Featured Start ***** -->
+          
+
+  <!-- ***** Featured Start hiru***** -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="feature-banner header-text">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <img src="assets/images/pp1.jpg" alt="" style="border-radius: 23px;">
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="thumb">
+                      <img src="assets/images/bp12.png" alt="" style="border-radius: 23px;">
+                      <a href="https://hirunaka-md-mini-bot.vercel.app/" target="_blank"><i class="fa fa-play"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Featured End ***** -->
+
+
+<div class="game-details">
+            <div class="row">
+              <div class="col-lg-12">
+                <h2>Hirunaka-MD</h2>
+              </div>
+              <div class="col-lg-12">
+                <div class="content">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="left-info">
+                        <div class="left">
+                          <h4>Hirunaka-MD mini bot</h4>
+                          <span>WhatsApp</span>
+                        </div>
+                        <ul>
+                          <li><i class="fa fa-star"></i> 4.2</li>
+                          <li><i class="fa fa-download"></i> 1.1k</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="right-info">
+                        <ul>
+                          <li><i class="fa fa-star"></i> 4.2</li>
+                          <li><i class="fa fa-download"></i> 1.1k</li>
+                          <li><i class="fa fa-server"></i> 50GB RAM</li>
+                          <li><i class="fa fa-gamepad"></i> Public</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="assets/images/ss11.png" alt="" style="border-radius: 23px; margin-bottom: 30px;">
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="assets/images/ss12.png" alt="" style="border-radius: 23px; margin-bottom: 30px;">
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="assets/images/ss13.png" alt="" style="border-radius: 23px; margin-bottom: 30px;">
+                    </div>
+                    <div class="col-lg-12">
+                      <p>Hirunaka-MD is a smart and powerful WhatsApp bot designed to make messaging easier, faster, and more convenient. <a href="https://wa.me/94751594321" target="_blank">It can include features such as automated replies, group management, media downloading, fun commands, and various useful tools.</a> With its modern functionality and user-friendly experience, Hirunaka-MD aims to provide a reliable and efficient WhatsApp automation experience.</p>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="main-border-button">
+                        <a href="https://hirunaka-md-mini-bot.vercel.app/">Connect Hirunaka-MD Now!</a>
+                      </div>
+                    </div>
+
+                   <div class="col-lg-12">
+                      <div class="main-border-button">
+                        <a href="https://chat.whatsapp.com/CpR0UJJKdYk8s7xGXgBKTx">Join group.</a>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="main-border-button">
+                        <a href="https://whatsapp.com/channel/0029VbE7rAMBadmVuveywN0Z">View channel.</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Details End ***** -->
+
+
+
+  <!-- ***** Featured Start gimaa***** -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="feature-banner header-text">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <img src="assets/images/pp2.jpg" alt="" style="border-radius: 23px;">
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="thumb">
+                      <img src="assets/images/bp22.png" alt="" style="border-radius: 23px;">
+                      <a href="https://gimaa-md-mini-bot-pair-01-txwr.onrender.com/" target="_blank"><i class="fa fa-play"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Featured End ***** -->
+
+
+          <!-- ***** Details Start gimaa-md ***** -->
+          <div class="game-details">
+            <div class="row">
+              <div class="col-lg-12">
+                <h2>Gimaa-MD</h2>
+              </div>
+              <div class="col-lg-12">
+                <div class="content">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="left-info">
+                        <div class="left">
+                          <h4>Gimaa-MD mini bot</h4>
+                          <span>WhatsApp</span>
+                        </div>
+                        <ul>
+                          <li><i class="fa fa-star"></i> 4.8</li>
+                          <li><i class="fa fa-download"></i> 1.2k</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="right-info">
+                        <ul>
+                          <li><i class="fa fa-star"></i> 4.8</li>
+                          <li><i class="fa fa-download"></i> 1.2k</li>
+                          <li><i class="fa fa-server"></i> 50GB RAM</li>
+                          <li><i class="fa fa-gamepad"></i> Public</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="assets/images/ss21.png" alt="" style="border-radius: 23px; margin-bottom: 30px;">
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="assets/images/ss22.png" alt="" style="border-radius: 23px; margin-bottom: 30px;">
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="assets/images/ss23.png" alt="" style="border-radius: 23px; margin-bottom: 30px;">
+                    </div>
+                    <div class="col-lg-12">
+                      <p>Gimaa-MD is a smart and powerful WhatsApp bot designed to make messaging easier, faster, and more convenient. <a href="https://wa.me/94751594321" target="_blank">It can include features such as automated replies, group management, media downloading, fun commands, and various useful tools.</a> With its modern functionality and user-friendly experience, Gimaa-MD aims to provide a reliable and efficient WhatsApp automation experience.</p>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="main-border-button">
+                        <a href="https://gimaa-md-mini-bot-pair-01-txwr.onrender.com/">Connect Gimaa-MD Now!</a>
+                      </div>
+                    </div>
+
+                   <div class="col-lg-12">
+                      <div class="main-border-button">
+                        <a href="https://chat.whatsapp.com/GRAiKOYuvoVJI3gHOL5LOv">Join group.</a>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="main-border-button">
+                        <a href="https://whatsapp.com/channel/0029VbDozeY17EmzW3SKBR0T">View channel.</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Details End ***** -->
+
+
+
+
+
+
+
+
+
+
+
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2026 <a href="#">Cyber-Duck</a> Company. All rights reserved. 
+          
+          <br>Design: <a href="https://wa.me/94751594321" target="_blank" title="free CSS templates">not_matheeshh</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/popup.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+
+  </body>
+
+</html>
